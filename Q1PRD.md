@@ -437,7 +437,7 @@ export class CompanyScraperService {
       const company = await CompanyService.getById(companyId);
       const website = company.profile.website;
       
-      // 2. Scrape products (details TBD - defer to CEO input)
+      // 2. Scrape products (details TBD)
       const scrapedProducts = await this.scrapeProducts(website);
       
       // 3. Scrape extended profile data (about page, team, etc.)
@@ -483,7 +483,6 @@ export class CompanyScraperService {
   
   private static async scrapeProducts(website: string): Promise<any[]> {
     // TODO: Implement product scraping
-    // Defer to CEO input on high-fidelity API sources
     
     // For now, return empty array (fail gracefully)
     return [];
@@ -1014,8 +1013,8 @@ async function sendMessage() {
 ## Out of Scope (For Later Phases)
 
 ### Phase 2 Enhancements (Future)
-- **High-fidelity product scraping**: Integration with CEO-recommended APIs
-- **Product images download/storage**: Currently just storing URLs
+- **High-fidelity product scraping**: [Tier 1: API endpoints, Tier 2: LLM responses, Tier 3: manual scrape]
+- **Product images download/storage**: Never in app, always url or CDN possibly
 - **Shopify/e-commerce platform integrations**: Direct API connections
 - **LinkedIn company page scraping**: Requires separate integration
 - **Pre-generated profile documents**: Caching for performance optimization
@@ -1220,8 +1219,8 @@ exports.down = (pgm) => {
 - [ ] Test all verification flows
 - [ ] Performance optimization
 
-### Post-MVP: Deep Scrape Implementation
-- Research high-fidelity product APIs (CEO input)
+### Further work: Deep Scrape Implementation
+- Research high-fidelity product APIs
 - Implement actual product scraping
 - Add extended profile scraping (about pages, etc.)
 
@@ -1239,7 +1238,7 @@ exports.down = (pgm) => {
 
 ## Notes
 
-- This PRD focuses on architecture and data flow, deferring specific scraping implementation to CEO input on high-fidelity APIs
+- This PRD focuses on architecture and data flow
 - Simple fire-and-forget async model for now; can upgrade to Bull/BullMQ later
 - Verification system is non-blocking but visible - users can use the system with unverified data
 - Chat quality improves as users verify, creating natural incentive to clean up data
