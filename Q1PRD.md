@@ -2,7 +2,7 @@
 
 **Version:** 1.0  
 **Date:** 2025-01-06  
-**Status:** Draft
+**Status:** Draft (will always be draft)
 
 ---
 
@@ -26,9 +26,7 @@ Build a two-phase company profile scraping system that:
 - **Enable smart conversations**: Chat has full context about company, products, and user preferences
 
 ### Success Metrics
-- Time-to-first-chat reduced by 50%
-- 70%+ of scraped data verified by users (not deleted)
-- Chat conversations reference specific products in 60%+ of recommendations
+- No users for now, so no metrics to reliably check
 
 ---
 
@@ -54,11 +52,11 @@ User clicks verification link
 activateUser() checks: "Is this the first verified user at this company?"
   ↓
 IF YES:
-  - Mark profile._metadata.deepScrapePending = true
+  - Mark profile._metadata.deepScrapePending = true or Redis key with TTL and company id to display in progress
   - Fire async deep scrape job (non-blocking)
   - Send email: "We're gathering your product catalog..."
   ↓
-User redirected to wizard (sees light scrape data immediately)
+User redirected to Login
 ```
 
 ### Phase 3: Background Deep Scrape
@@ -98,7 +96,7 @@ Select products relevant to this conversation (optional)
 Chat includes:
   - Full conversation history
   - Company profile from JSONB
-  - Selected products (or all if none selected)
+  - Selected products (or none if none selected and looking for more general brand advice)
   ↓
 IF unverified fields exist:
   - Show banner: "You have unverified data. See Brand tab to increase chat fidelity."
