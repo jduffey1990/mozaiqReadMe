@@ -1,6 +1,6 @@
 # PRD: Company Profile Scraping, Verification & Chat Integration
 
-**Version:** 1.5.1
+**Version:** 1.1.5
 **Date:** 2025-01-06  
 **Status:** Draft (will always be draft)
 
