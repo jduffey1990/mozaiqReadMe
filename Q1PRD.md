@@ -1,6 +1,6 @@
 # PRD: Company Profile Scraping, Verification & Chat Integration
 
-**Version:** 1.1.1 
+**Version:** 1.5.1
 **Date:** 2025-01-06  
 **Status:** Draft (will always be draft)
 
@@ -1195,11 +1195,34 @@ exports.down = (pgm) => {
 
 ## Work breakdown
 
-### Step 1: Foundation
-- [ ] Add verification fields to products table (Migration 1)
-- [ ] Add profile helper functions (Migration 2)
-- [ ] Update UserService.activateUser() with first-user check
-- [ ] Create CompanyScraperService stub (returns empty products for now)
+### Step 1.1: Add verification fields to products 
+- [x] 1.1.1 - Create database migration for verification fields
+- [x] 1.1.2 - Update Product TypeScript model/interfaces
+- [x] 1.1.3 - Update ProductService to handle verification fields
+  - [x] 1.1.3.1 - Update create() to accept verification fields
+  - [x] 1.1.3.2 - Update update() to auto-verify on edit
+  - [x] 1.1.3.3 - Add verifyProduct() method
+  - [x] 1.1.3.4 - Add getUnverifiedProducts() query method
+- [x] 1.1.4 - Update API routes for verification
+  - [x] 1.1.4.1 - PATCH /api/products/:id/verify endpoint
+  - [x] 1.1.4.2 - GET /api/companies/:id/products?verification_status=X
+  - [x] 1.1.4.3 - Update existing PATCH /api/products/:id to auto-verify
+- [ ] 1.1.5 - Write and evaluate tests
+
+### Step 1.2: Add profile helper functions (Migration 2)
+- [ ] 1.2.1 - Create SQL helper functions migration
+- [ ] 1.2.2 - Update Company model with _metadata type definitions
+- [ ] 1.2.3 - Update CompanyService to use helper functions
+
+### Step 1.3: Update UserService.activateUser() with first-user check
+- [ ] 1.3.1 - Add isFirstVerifiedUser() check
+- [ ] 1.3.2 - Trigger deep scrape on first user verification
+- [ ] 1.3.3 - Send "gathering catalog" email
+
+### Step 1.4: Create CompanyScraperService stub
+- [ ] 1.4.1 - Create service file with stub methods
+- [ ] 1.4.2 - Add deepScrape() method (returns empty for now)
+- [ ] 1.4.3 - Add profile merge logic
 
 ### Step 2: Wizard UI
 - [ ] Create VerificationBadge component
