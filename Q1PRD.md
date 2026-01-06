@@ -1196,25 +1196,25 @@ exports.down = (pgm) => {
 
 ## Timeline Estimate
 
-### Week 1: Foundation
+### Step 1: Foundation
 - [ ] Add verification fields to products table (Migration 1)
 - [ ] Add profile helper functions (Migration 2)
 - [ ] Update UserService.activateUser() with first-user check
 - [ ] Create CompanyScraperService stub (returns empty products for now)
 
-### Week 2: Wizard UI
+### Step 2: Wizard UI
 - [ ] Create VerificationBadge component
 - [ ] Add verification alert banner to wizard
 - [ ] Implement auto-verify on edit logic
 - [ ] Add products verification table/UI
 
-### Week 3: Chat Integration
+### Step 3: Chat Integration
 - [ ] Update ChatService to include profile + products
 - [ ] Add verification warnings to chat UI
 - [ ] Add product selector to chat
 - [ ] Add long conversation warnings
 
-### Week 4: Polish & Testing
+### step 4: Polish & Testing
 - [ ] Email notification for deep scrape complete
 - [ ] Error handling and logging
 - [ ] Test all verification flows
