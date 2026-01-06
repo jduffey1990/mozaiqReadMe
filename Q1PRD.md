@@ -1,9 +1,11 @@
 # PRD: Company Profile Scraping, Verification & Chat Integration
 
-**Version:** 1.0  
+**Version:** 1.0.0  
 **Date:** 2025-01-06  
 **Status:** Draft (will always be draft)
 
+
+Versioning is done by [Step](#work-breakdown) as the integer, and sub-steps or modifications as decimals.
 ---
 
 ## Overview
@@ -1191,7 +1193,7 @@ exports.down = (pgm) => {
 
 ---
 
-## Timeline Estimate
+## Work breakdown
 
 ### Step 1: Foundation
 - [ ] Add verification fields to products table (Migration 1)
