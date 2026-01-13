@@ -1,6 +1,6 @@
 # PRD: Company Profile Scraping, Verification & Chat Integration
 
-**Version:** 1.1.5
+**Version:** 3.0.0
 **Date:** 2025-01-06  
 **Status:** Draft (will always be draft)
 
@@ -1207,28 +1207,28 @@ exports.down = (pgm) => {
   - [x] 1.1.4.1 - PATCH /api/products/:id/verify endpoint
   - [x] 1.1.4.2 - GET /api/companies/:id/products?verification_status=X
   - [x] 1.1.4.3 - Update existing PATCH /api/products/:id to auto-verify
-- [ ] 1.1.5 - Write and evaluate tests
+- [x] 1.1.5 - Write and evaluate tests
 
 ### Step 1.2: Add profile helper functions (Migration 2)
-- [ ] 1.2.1 - Create SQL helper functions migration
-- [ ] 1.2.2 - Update Company model with _metadata type definitions
-- [ ] 1.2.3 - Update CompanyService to use helper functions
+- [x] 1.2.1 - Create SQL helper functions migration
+- [x] 1.2.2 - Update Company model with _metadata type definitions
+- [x] 1.2.3 - Update CompanyService to use helper functions
 
-### Step 1.3: Update UserService.activateUser() with first-user check
+### Step 1.3: Update UserService.activateUser() with first-user check WAITING ON THIS FOR LATER ITERATION
 - [ ] 1.3.1 - Add isFirstVerifiedUser() check
 - [ ] 1.3.2 - Trigger deep scrape on first user verification
 - [ ] 1.3.3 - Send "gathering catalog" email
 
-### Step 1.4: Create CompanyScraperService stub
+### Step 1.4: Create CompanyScraperService stub WAITING ON THIS FOR LATER ITERATION
 - [ ] 1.4.1 - Create service file with stub methods
 - [ ] 1.4.2 - Add deepScrape() method (returns empty for now)
 - [ ] 1.4.3 - Add profile merge logic
 
 ### Step 2: Wizard UI
-- [ ] Create VerificationBadge component
-- [ ] Add verification alert banner to wizard
-- [ ] Implement auto-verify on edit logic
-- [ ] Add products verification table/UI
+- [x] Create VerificationBadge component
+- [x] Add verification alert banner to wizard
+- [x] Implement auto-verify on edit logic
+- [x] Add products verification table/UI
 
 ### Step 3: Chat Integration
 - [ ] Update ChatService to include profile + products
