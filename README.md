@@ -216,18 +216,30 @@ cd ..
 
 Environment variables contain sensitive configuration data and are not tracked in version control.
 
-**To obtain environment files:**
+Each service repository contains a `.env.example` file listing every required variable with a placeholder value and a comment explaining where to get the real value. Use these as your starting point.
 
-1. Contact a team member or lead developer
-2. Request the following files:
-   - `wsapp-companies/.env`
-   - `wsapp-users/.env`
-   - `brandora-verify/.env`
-   - `wsapp/.env`
+**To set up your environment files:**
 
-3. Place each `.env` file in its respective service directory
+1. Copy each example file and rename it to `.env`:
+   ```bash
+   cp wsapp-companies/.env.example wsapp-companies/.env
+   cp wsapp-users/.env.example wsapp-users/.env
+   cp brandora-verify/.env.example brandora-verify/.env
+   cp wsapp/.env.example wsapp/.env
+   ```
+   > **Note:** The frontend repository clones into a folder called `Brandora` locally. Adjust the path if yours differs.
 
-> **Security Note:** Never commit `.env` files to version control. These files should already be listed in `.gitignore`.
+2. Fill in each placeholder value. Contact a team member or lead developer for:
+   - `JWT_SECRET` — must be the same value across all backend services
+   - `RECAPTCHA_SECRET_KEY` / `VITE_RECAPTCHA_SITE_KEY` — paired keys from Google reCAPTCHA console
+   - `GOOGLE_PLACES_API_KEY` — Google Cloud Console (Maps Platform > Places API)
+   - `GPT_API_KEY` — OpenAI platform
+   - `VITE_MAPBOX_TOKEN` — Mapbox account dashboard
+   - AWS credentials — use a dedicated IAM user with minimal permissions (SES SendEmail only for local dev), **never use root or personal AWS credentials**
+
+3. For local development, the `DATABASE_URL` defaults in `.env.example` already match the Docker Compose configuration — you typically do not need to change them.
+
+> **Security Note:** Never commit `.env` files to version control. These files should already be listed in `.gitignore`. Never share real AWS credentials directly — create a scoped IAM user instead.
 
 ### Step 9: Start the Application
 ```bash
