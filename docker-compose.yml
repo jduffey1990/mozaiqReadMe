@@ -22,7 +22,7 @@ services:
   # COMPANIES DATABASE
   # ============================================
   postgres-companies:
-    image: postgres:16-alpine
+    image: pgvector/pgvector:pg16
     container_name: postgres-companies-local
     environment:
       POSTGRES_DB: wsapp_companies
@@ -52,6 +52,7 @@ services:
       DATABASE_URL: postgres://wsapp:wsapp@postgres:5432/wsapp
       CHOKIDAR_USEPOLLING: "true"
       WATCHPACK_POLLING: "true"
+      BYPASS_CAPTCHA: "true"
     ports: ["3001:3000"]
     depends_on:
       postgres:
